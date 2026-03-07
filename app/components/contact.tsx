@@ -7,39 +7,45 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane } from "reac
 export default function Contact() {
   const [loading, setLoading] = useState(false);
 
-  const contactFormKey = process.env.NEXT_PUBLIC_CONTACT_FORM_KEY!;
-  const companyName = process.env.NEXT_PUBLIC_COMPANY_NAME!;
+  const klantId = process.env.NEXT_PUBLIC_KLANT_ID;
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
 
     const formData = new FormData(event.currentTarget);
-    formData.append("access_key", contactFormKey);
+    const naam = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const bericht = formData.get("message") as string;
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://splendid-gert-lannie-3e96e4ca.koyeb.app/api/send-mail", {
         method: "POST",
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: formData,
+        body: JSON.stringify({
+          naam: naam,
+          email: email,
+          bericht: bericht,
+          klantId: klantId,
+        }),
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok && data.success) {
         Swal.fire({
           title: "Succes!",
           text: "E-mail succesvol verzonden!",
           icon: "success",
           confirmButtonColor: "#2563eb",
         });
-        //event.currentTarget.reset();
       } else {
         Swal.fire({
           title: "Fout!",
-          text: data.message || "Er ging iets mis.",
+          text: data.error || "Er ging iets mis bij het verzenden.",
           icon: "error",
           confirmButtonColor: "#dc2626",
         });
@@ -47,7 +53,7 @@ export default function Contact() {
     } catch (error) {
       Swal.fire({
         title: "Fout!",
-        text: "Er is een netwerkfout opgetreden.",
+        text: "Er is een netwerkfout opgetreden. Probeer het later opnieuw.",
         icon: "error",
       });
     } finally {
@@ -66,10 +72,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="bg-white rounded-2xl p-8 pb-6 shadow-lg border border-gray-100 h-fit">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Stuur ons een bericht</h3>
-            <form onSubmit={onSubmit} className="space-y-4">
-              <input type="hidden" name="subject" value="Nieuw bericht via de website" />
-              <input type="hidden" name="from_name" value={companyName} />
 
+            <form onSubmit={onSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
