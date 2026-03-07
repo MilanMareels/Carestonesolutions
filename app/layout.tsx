@@ -126,7 +126,7 @@ export default function RootLayout({
         <StructuredData />
         <Navbar />
         <main>{children}</main>
-        <GoogleAnalytics gaId="G-SP9TL8QBRJ" />
+        <GoogleAnalytics gaId="G-80P67LCE9F" />
         <CookieBanner />
         <Footer />
       </body>
