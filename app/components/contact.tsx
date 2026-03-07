@@ -132,8 +132,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Telefoon</h4>
-                    <a href="tel:+32494293334">
-                      <p className="text-gray-600">0494 29 33 34</p>
+                    <a href="tel:+32491330959">
+                      <p className="text-gray-600">0491 33 09 59</p>
                     </a>
                   </div>
                 </div>
@@ -167,10 +167,10 @@ export default function Contact() {
             <div className="bg-blue-600 rounded-2xl p-8 text-white">
               <h3 className="text-xl font-bold mb-4">24/7 Spoeddienst</h3>
               <p className="text-blue-100 mb-4">Voor urgente reparaties en noodsituaties zijn wij 24 uur per dag, 7 dagen per week bereikbaar.</p>
-              <a href="tel:+32494293334">
+              <a href="tel:+32491330959">
                 <button className="rounded-button bg-white text-blue-600 hover:bg-blue-50 hover:cursor-pointer px-6 py-3 font-semibold transition-colors flex items-center gap-2">
                   <FaPhone />
-                  Bel Nu: 0494 29 33 34
+                  Bel Nu: 0491 33 09 59
                 </button>
               </a>
             </div>
