@@ -7,7 +7,7 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaPaperPlane } from "reac
 export default function Contact() {
   const [loading, setLoading] = useState(false);
 
-  const klantId = process.env.KLANT_ID;
+  const klantId = process.env.NEXT_PUBLIC_KLANT_ID;
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
