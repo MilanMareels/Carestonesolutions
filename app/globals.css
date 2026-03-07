@@ -1,0 +1,20 @@
+@import "tailwindcss";
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .rounded-button {
+    border-radius: 0.75rem;
+  }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
