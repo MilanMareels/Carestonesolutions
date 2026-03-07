@@ -5,6 +5,7 @@ import CookieBanner from "./components/cookieBanner";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import StructuredData from "./components/structuredData";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -125,6 +126,7 @@ export default function RootLayout({
         <StructuredData />
         <Navbar />
         <main>{children}</main>
+        <GoogleAnalytics gaId="G-SP9TL8QBRJ" />
         <CookieBanner />
         <Footer />
       </body>
