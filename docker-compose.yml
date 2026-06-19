@@ -1,5 +1,5 @@
 services:
-  nextjs-website:
+  website-carestonesolutions:
     build:
       context: .
       args:
