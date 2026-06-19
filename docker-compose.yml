@@ -7,7 +7,7 @@ services:
         - NEXT_PUBLIC_CONTACT_FORM_KEY=${NEXT_PUBLIC_CONTACT_FORM_KEY}
         - KLANT_ID=${KLANT_ID}
         - LANNIE_API_URL=${LANNIE_API_URL}
-    container_name: website-atelier-synaeve
+    container_name: website-carestonesolutions
     restart: unless-stopped
     ports:
       - "3006:3000"
